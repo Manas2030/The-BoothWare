@@ -1,7 +1,10 @@
 /**
- *
+ *  
  *  Author: Manas Gupta
- *
+ *  Date:   29th March 2020
+ *  Description:    This java file uses Booth's algorithm to multiply 2 binary numbers (in 2's complement).
+ *                  Input:  In decimal format
+ *                  Output: both Binary and Decimal values
  */
 package booth;
 
@@ -141,8 +144,8 @@ public class boothsAlgorithm {
 
     /**
      *
-     * @param s     take 2's complement of s
-     * @return      return 2's complement
+     * @param s     binary string
+     * @return      return 2's complement of s
      */
     static StringBuilder twos(StringBuilder s){
         StringBuilder tmp = new StringBuilder(s);
