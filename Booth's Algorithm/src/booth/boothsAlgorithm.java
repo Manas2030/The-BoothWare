@@ -1,7 +1,6 @@
 /**
- *  
- *  Author: Manas Gupta
- *  Date:   29th March 2020
+ *
+ *  Author:         Manas Gupta
  *  Description:    This java file uses Booth's algorithm to multiply 2 binary numbers (in 2's complement).
  *                  Input:  In decimal format
  *                  Output: both Binary and Decimal values
@@ -19,6 +18,7 @@ public class boothsAlgorithm {
 
         System.out.println("\nWelcome to BoothWare    " + "*_*\n");
 
+        // RECEIVE INPUT
         System.out.println("Enter Multiplicand: ");
         long a=sc.nextLong();    // multiplicand
         System.out.println("Enter Multiplier: ");
@@ -33,13 +33,13 @@ public class boothsAlgorithm {
         if(decision.equals("yes"))
             display = true;
 
+        // decide the size of the registers to use
         int size;
         if(a == 0 && b == 0)
             size = 1;
         else
             size = (int)(Math.log(Math.max(Math.abs(a),Math.abs(b)))/Math.log(2)+ 1e-11)+1;
-
-        //additional bit for sign
+        //additional bit for sign at index 0
         size++;
 
         String tmp="";
@@ -73,9 +73,11 @@ public class boothsAlgorithm {
              *      Main Booth's Algorithm
              */
             if(q.charAt(size-1)=='1' && p.charAt(0)=='0')
+                // ac = ac - m
                 ac=add(ac,complement);
 
             else if(q.charAt(size-1)=='0' && p.charAt(0)=='1')
+                // ac = ac + m
                 ac=add(ac,m);
 
             arithmeticShiftRight(ac,q,p);
@@ -90,6 +92,7 @@ public class boothsAlgorithm {
 
         System.out.println("\nResultant Binary Number: "+ res);
 
+        // check sign bit
         if(res.charAt(0)=='1'){
             res = twos(res);
             val = toDecimal(res);
